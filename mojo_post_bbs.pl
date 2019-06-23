@@ -10,6 +10,14 @@ get '/' => sub {
   $c->stash( kakikomi => \@entries );
   $c->render('index');
 };
+# 以下の7行追加
+post '/post' => sub {              # getではなく、post 。また第一引数にも注目
+  my $c     = shift;
+  my $entry = $c->param('body');
+  push @entries , $entry;
+  $c->stash( kakikomi => \@entries );
+  $c->render('index');
+};
 
 app->start;
 __DATA__
