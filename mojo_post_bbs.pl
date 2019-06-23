@@ -6,8 +6,8 @@ my @entries = ();
 get '/' => sub {
   my $c     = shift;
   my $entry = $c->param('body');
-  push @entries , $entry;            # 追加
-  $c->stash( kakikomi => \@entries );# 変更
+  push @entries , $entry;
+  $c->stash( kakikomi => \@entries );
   $c->render('index');
 };
 
@@ -21,7 +21,7 @@ __DATA__
 
 <form action="/" method="get">
     <input name="body" type="text">
-    <input type="submit" value="投稿する">
+    <input type="submit" value="GETで投稿する"> <!-- ボタン名を変更 -->
 </form>
 <p>
 <% for my $kakiko (@{$kakikomi}){ %>
