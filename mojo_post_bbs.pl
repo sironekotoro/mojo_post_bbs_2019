@@ -21,8 +21,14 @@ __DATA__
 
 <form action="/" method="get">
     <input name="body" type="text">
-    <input type="submit" value="GETで投稿する"> <!-- ボタン名を変更 -->
+    <input type="submit" value="GETで投稿する">
 </form>
+<!-- 以下の4行追加 -->
+<form action="/post" method="post">
+    <input name="body" type="text">
+    <input type="submit" value="POSTで投稿する">
+</form>
+
 <p>
 <% for my $kakiko (@{$kakikomi}){ %>
     <%= $kakiko %><br>
