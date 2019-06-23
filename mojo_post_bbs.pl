@@ -5,13 +5,13 @@ my @entries = ();
 
 get '/' => sub {
   my $c     = shift;
-  my $entry = $c->param('body');
-  push @entries , $entry;
+#  my $entry = $c->param('body');    # コメントアウト
+#  push @entries , $entry;           # コメントアウト
   $c->stash( kakikomi => \@entries );
   $c->render('index');
 };
-# 以下の7行追加
-post '/post' => sub {              # getではなく、post 。また第一引数にも注目
+
+post '/post' => sub {
   my $c     = shift;
   my $entry = $c->param('body');
   push @entries , $entry;
