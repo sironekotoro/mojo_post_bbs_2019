@@ -17,6 +17,7 @@ post '/post' => sub {
   push @entries , $entry;
   # $c->stash( kakikomi => \@entries );# コメントアウト
   # $c->render('index');               # コメントアウト
+  $c->redirect_to('/'); # 投稿を受け付けた後に、get で / に移動
 };
 
 app->start;
