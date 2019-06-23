@@ -15,8 +15,8 @@ post '/post' => sub {
   my $c     = shift;
   my $entry = $c->param('body');
   push @entries , $entry;
-  $c->stash( kakikomi => \@entries );
-  $c->render('index');
+  # $c->stash( kakikomi => \@entries );# コメントアウト
+  # $c->render('index');               # コメントアウト
 };
 
 app->start;
