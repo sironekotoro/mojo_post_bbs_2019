@@ -5,8 +5,6 @@ my @entries = ();
 
 get '/' => sub {
   my $c     = shift;
-#  my $entry = $c->param('body');    # コメントアウト
-#  push @entries , $entry;           # コメントアウト
   $c->stash( kakikomi => \@entries );
   $c->render('index');
 };
@@ -15,8 +13,6 @@ post '/post' => sub {
   my $c     = shift;
   my $entry = $c->param('body');
   push @entries , $entry;
-  # $c->stash( kakikomi => \@entries );# コメントアウト
-  # $c->render('index');               # コメントアウト
   $c->redirect_to('/'); # 投稿を受け付けた後に、get で / に移動
 };
 
@@ -28,11 +24,6 @@ __DATA__
 % title 'BBS';
 <h1>掲示板です</h1>
 
-<form action="/" method="get">
-    <input name="body" type="text">
-    <input type="submit" value="GETで投稿する">
-</form>
-<!-- 以下の4行追加 -->
 <form action="/post" method="post">
     <input name="body" type="text">
     <input type="submit" value="POSTで投稿する">
